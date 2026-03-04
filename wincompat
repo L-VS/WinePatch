@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# WINCOMPAT script for Windows integration on Linux using Bottles and Wine-GE
+
+# Check for necessary commands
+if ! command -v wine &> /dev/null
+then
+    echo "Wine is not installed. Please install Wine to proceed."
+    exit 1
+fi
+
+if ! command -v bottles &> /dev/null
+then
+    echo "Bottles is not installed. Please install Bottles to proceed."
+    exit 1
+fi
+
+# Set the Wine prefix
+WINEPREFIX=$HOME/.wineprefix
+
+# Create a new Wine prefix if it doesn't exist
+if [ ! -d "$WINEPREFIX" ]; then
+    wineboot --init
+fi
+
+# Execute Wine with the provided arguments
+wine "$@"
