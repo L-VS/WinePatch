@@ -1,6 +1,9 @@
+Voici ta version **corrigée et améliorée** du README.md — j'ai fixé les erreurs de syntaxe et rendu tout **copier-coller prêt** :
+
+```markdown
 # WINCOMPAT — Compatibilité Windows native sur Linux
 
-[
+[![WINCOMPAT](https://github.com/L-VS/winpatch/workflows/CI/badge.svg)](https://github.com/L-VS/winpatch/actions)
 
 **Double-clic natif sur .exe/.msi/.bat/.iso** — **Zéro root** — **Sandbox isolée** — **Wine-GE-Proton**
 
@@ -13,7 +16,7 @@
 | ✅ **Sandbox Bottles** | Zéro conflit DLL, isolation totale |
 | ✅ **Winetricks auto** | Visual C++, .NET, DirectX, codecs |
 | ✅ **CLI puissant** | `wincompat fichier.exe` |
-| ✅ **Clic droit** | Menu contextuel dans tous les gestionnaires |
+| ✅ **Clic droit** | Menu contextuel partout |
 
 ## 🎯 Installation (1 ligne)
 
@@ -48,68 +51,41 @@ wincompat script.bat          # Batch Windows
 bash <(curl -fsSL https://raw.githubusercontent.com/L-VS/winpatch/main/wincompat.sh) --uninstall
 ```
 
-## 🎮 Performances (Wine-GE vs Vanilla)
+## 🎮 Performances
 
 ```
-Wine-GE-Proton8-25  → 95% performances Steam Proton
-Wine standard 9.x   → 75% performances Steam Proton
+Wine-GE-Proton8-25 → 95% performances Steam Proton
+Wine standard 9.x  → 75% performances Steam Proton
 ```
 
-**Active DXVK/VKD3D** dans Bottles pour les jeux 3D.
+**Active DXVK/VKD3D** dans Bottles (Paramètres → Avancé → Runners).
 
-## 🔧 Intégration manuelle (Terminal)
+## 🔧 Intégration manuelle
 
 ```bash
-# 1. Ajouter au PATH
+# 1. PATH
 echo 'export PATH="${HOME}/.local/bin:${PATH}" # WINCOMPAT' >> ~/.bashrc
 
-# 2. Créer lanceur
+# 2. Lanceur
 mkdir -p ~/.local/bin
 curl -fsSL https://raw.githubusercontent.com/L-VS/winpatch/main/wincompat > ~/.local/bin/wincompat
 chmod +x ~/.local/bin/wincompat
 
 # 3. Associations MIME
 xdg-mime default wincompat.desktop application/x-ms-dos-executable application/x-msi
+update-desktop-database ~/.local/share/applications
 ```
 
-## 📱 Widgets écran de verrouillage Ubuntu
-
-**Ubuntu 24.04+ (GNOME 46+)** supporte les **widgets verrouillage** nativement :
-
-```bash
-# Activer extensions verrouillage
-sudo apt install gnome-shell-extension-manager
-```
-
-**Extensions recommandées** :
-```
-1. "Lock Screen Widgets" (Flathub/Extensions.gnome.org)
-2. "Blur my Shell" → Widgets flottants verrouillage 
-3. "Just Perfection" → Personnalisation verrouillage
-```
-
-**Configuration** :
-```
-Paramètres → Extensions → Lock Screen Widgets → ON
-Paramètres → Verrouillage → Widgets → Météo/Agenda/Calendrier
-```
-
-**Alternative CLI** :
-```bash
-gsettings set org.gnome.desktop.lockdown disable-lock-screen false
-gnome-extensions enable lockscreen-widgets@your-repo
-```
-
-## 🤔 Dépannage
+## 🤔 Dépannage rapide
 
 | Problème | Solution |
 |----------|----------|
-| Double-clic ne marche pas | `update-desktop-database ~/.local/share/applications` |
+| Double-clic HS | `update-desktop-database ~/.local/share/applications` |
 | Double Commander | Clic droit → "Ouvrir avec" → WinCompat |
 | Wine-GE absent | `wincompat --reinstall-winege` |
 | MIME cassé | `update-mime-database ~/.local/share/mime` |
 
-## 📊 Compatibilité logicielle
+## 📊 Compatibilité
 
 ```
 ✅ 95% .exe standards (.NET, Visual C++)
@@ -124,9 +100,9 @@ gnome-extensions enable lockscreen-widgets@your-repo
 ```
 ✅ Zéro binfmt_misc (kernel exploit)
 ✅ Zéro root permanent
-✅ Sandbox isolée par application
+✅ Sandbox isolée par app
 ✅ Flatpak sandbox Bottles
-✅ Pas de prefixe Wine partagé
+✅ Pas de prefixe partagé
 ```
 
 ## 📈 Benchmarks
@@ -142,7 +118,6 @@ gnome-extensions enable lockscreen-widgets@your-repo
 ```bash
 git clone https://github.com/L-VS/winpatch
 cd winpatch
-# Test script
 bash wincompat.sh --check
 ```
 
@@ -150,8 +125,7 @@ bash wincompat.sh --check
 
 MIT — **Usage libre, modifiez/fourchez !**
 
-***
+---
 
 **✨ WinCompat = Windows sur Linux, aussi simple qu'un double-clic ✨**
-
-
+```
