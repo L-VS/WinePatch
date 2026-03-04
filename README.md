@@ -18,7 +18,7 @@
 ## 🎯 Installation (1 ligne)
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/votre-user/wincompat/main/wincompat.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/L-VS/winpatch/main/wincompat.sh)
 ```
 
 **Recharger le terminal** : `source ~/.bashrc`
@@ -45,7 +45,7 @@ wincompat script.bat          # Batch Windows
 ## 🗑️ Désinstallation complète
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/votre-user/wincompat/main/wincompat.sh) --uninstall
+bash <(curl -fsSL https://raw.githubusercontent.com/L-VS/winpatch/main/wincompat.sh) --uninstall
 ```
 
 ## 🎮 Performances (Wine-GE vs Vanilla)
@@ -65,7 +65,7 @@ echo 'export PATH="${HOME}/.local/bin:${PATH}" # WINCOMPAT' >> ~/.bashrc
 
 # 2. Créer lanceur
 mkdir -p ~/.local/bin
-curl -fsSL https://raw.githubusercontent.com/votre-user/wincompat/main/wincompat > ~/.local/bin/wincompat
+curl -fsSL https://raw.githubusercontent.com/L-VS/winpatch/main/wincompat > ~/.local/bin/wincompat
 chmod +x ~/.local/bin/wincompat
 
 # 3. Associations MIME
@@ -140,8 +140,8 @@ gnome-extensions enable lockscreen-widgets@your-repo
 ## 🤝 Contribuer
 
 ```bash
-git clone https://github.com/votre-user/wincompat
-cd wincompat
+git clone https://github.com/L-VS/winpatch
+cd winpatch
 # Test script
 bash wincompat.sh --check
 ```
