@@ -1,6 +1,5 @@
-Voici ta version **corrigée et améliorée** du README.md — j'ai fixé les erreurs de syntaxe et rendu tout **copier-coller prêt** :
 
-```markdown
+
 # WINCOMPAT — Compatibilité Windows native sur Linux
 
 [![WINCOMPAT](https://github.com/L-VS/winpatch/workflows/CI/badge.svg)](https://github.com/L-VS/winpatch/actions)
